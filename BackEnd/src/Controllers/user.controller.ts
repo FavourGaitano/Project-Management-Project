@@ -1,5 +1,5 @@
 import mssql from 'mssql';
-import { Request, Response } from "express";
+import { Request, Response, query } from "express";
 import { v4 } from 'uuid'
 import { USers } from '../Interfaces/User';
 import { sqlConfig } from '../Config/sql.Config';
@@ -25,11 +25,22 @@ export const createUser = async (req: Request, res: Response) => {
         return res.json({
             message: "Account created successfully",
         });
-    } catch (error) {
+    }  catch (error) {
         console.error(error);
-        res.json({ error: "An error occurred while processing the request." });
+        res.status(500).json({ error: "An error occurred while processing the request." });
     }
 };
+
+// export const getUsers = async (req: Request, res: Response) => {
+//     try {
+//       const procedureName = "getUsers";
+//     //   const result = query(`EXEC ${procedureName}`);
+//     //   return res.json(result.recordset);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
+  
 
 
 

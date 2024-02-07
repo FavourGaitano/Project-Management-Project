@@ -36,7 +36,16 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     }
     catch (error) {
         console.error(error);
-        res.json({ error: "An error occurred while processing the request." });
+        res.status(500).json({ error: "An error occurred while processing the request." });
     }
 });
 exports.createUser = createUser;
+// export const getUsers = async (req: Request, res: Response) => {
+//     try {
+//       const procedureName = "getUsers";
+//     //   const result = query(`EXEC ${procedureName}`);
+//     //   return res.json(result.recordset);
+//     } catch (error) {
+//       console.log(error);
+//     }
+//   };
