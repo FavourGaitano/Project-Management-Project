@@ -1,0 +1,19 @@
+
+###create
+POST http://localhost:4100/users
+Content-Type: application/json
+
+
+{
+    "user_id": 1,
+    "name": "John Doe",
+    "email": "meshack400@gmail.com",
+    "description": "jhdfcjhbdn",
+    "registered_user": "Korir"
+}
+
+### 
+GET http://localhost:4100/users
+Content-Type: application/json
+
+
