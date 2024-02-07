@@ -1,0 +1,209 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+  
+    height: 95vh;
+    background-color: #48ae2c;
+}
+.profile{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-left: 50px;
+}
+
+.container {
+    background-color: #fff;
+    height: 100%; 
+    border-radius: 10px;
+}
+.nav-search{
+    display: flex;
+    gap: 5px;
+    width: 40%;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: #7f997f;
+    cursor: pointer;
+    font-size: 15px;
+    color: aliceblue;
+}
+
+
+.navbar{
+    display: flex;
+   height: 15%; 
+   align-items: center;
+   border-bottom: 2px solid gray;
+   gap: 30px;
+}
+
+.navbar > #tail{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 10px;
+}
+#tail{
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+}
+
+
+.navbar img {
+    margin-right: 8px; 
+    padding: 8px;
+}
+
+.general{
+    display: flex;
+    height: 90%;
+    margin-left: 20px;
+}
+
+.navbar h3 {
+    margin: 0; 
+}
+.search-bar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 180px;
+}
+#sidebar{
+    display: flex;
+    flex-direction: column;
+    border-right:2px solid gray;
+    border-top:2px solid gray;
+    width: 15vw;
+    height: 91.5%;
+    justify-content: end;
+}
+
+.text-side{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+#topic{
+    display: flex;
+        font-family: 'Inter', sans-serif;
+        font-size: 36px; 
+}
+
+#colors{
+    background-color: rgb(47, 221, 244);
+}
+
+.bg{
+    display: flex;
+    margin-left: 100PX;
+    background-color: rgb(173, 238, 203);
+    border-radius: 20px;
+    width: 40vw;
+    height: 35vh;
+}
+
+#completed-button{
+    display: flex;
+    height: 5vh;
+    width: 6vw;
+    margin-left: 10px;
+    justify-content: center;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 200px;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.bg > p{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#id{
+    border-bottom: 2px solid green;
+    width: 40vw;
+    margin-left: 110px;
+    font-weight: 300;
+    font-size: larger;
+}
+
+#date-comp{
+    display: flex;
+    font-size: larger;
+    height: 5vh;
+    width: 12vw;
+    margin-left: 200px;
+    justify-content: center;
+    justify-content: flex-end;
+    margin-top: 200px;
+    padding: 7px;
+    cursor: pointer;
+    
+}
+
+.Todo, .director {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+    margin-bottom: 100px;
+    
+}
+
+#ProjectsId {
+    font-size: 16px; 
+    font-weight: bold;
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    width: 180px;
+    color: #fff; 
+    background-color: #49881d; /* Background color, you can change this */
+}
+
+#History{
+    font-size: 24px; 
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+        font-size: 18px;
+        font-weight: bold;
+        color: #333;
+        cursor: pointer;
+        transition: color 0.3s;
+        margin-bottom: 100px;
+}
+
+.director{
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    transition: color 0.3s;
+    margin-bottom: 100px; 
+    
+}
+
+p {
+    font-size: 15px;
+    color: #201f1f;
+}
+
+#History:hover, .Todo:hover, .director.hover{
+    color: #1a901d; 
+}
+
+
