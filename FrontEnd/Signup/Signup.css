@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('/Project-Management-Project/Assets/istockphoto-1405258169-612x612\ 1.png');
+    background-image: url('../Assets/istockphoto-1405258169-612x612\ 1.png');
     /* height: 100%; */
     width: 100%;
     background-size: cover;

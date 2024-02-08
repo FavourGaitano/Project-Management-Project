@@ -6,7 +6,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-image: url('/Project-Management-Project/Assets/istockphoto-1405258169-612x612\ 1.png');
+    background-image: url('../Assets/istockphoto-1405258169-612x612\ 1.png');
     /* height: 100%; */
     width: 100%;
     background-size: cover;
@@ -28,8 +28,13 @@ body {
     width: 25vw;
     font-family: 'Montserrat';
     font-size: larger;
+    background-color: transparent;
+    color:white;
 }
-
+input::placeholder {
+    color: white; /* or any color you prefer */
+    /* opacity: 1;  */
+  }
 .account{
     color: white;
 }
@@ -57,10 +62,11 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    padding-top:8px;
 }
 
 button:hover {
-    background-color: #45a049;
+    background-color: #6f9c71;
 }
 
 .signin-link {

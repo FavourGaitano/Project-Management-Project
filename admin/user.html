@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main">
+
+        <div class="nav-bar">
+            <div class="users">
+                <img  class = "logo" src="images/colorfilter.png" alt="users" />
+                <h3> Your Project</h3>
+                
+            </div>
+
+            <div class="admin">
+                <ion-icon size="large" class="icon" name="person-circle-outline"></ion-icon>
+                <p style="text-align: center; font-size:14px; padding-right:30px;">Favour</p>
+                
+
+            </div>
+        </div>
+
+        <div class="container">
+        
+            <div class="side-bar">
+
+                <div class="userNames">
+                    
+                </div>
+
+                <div class="projects">
+                    <div class="title">
+                        <h3>COMPLETED PROJECTS</h3>
+                         <!-- <button id="addbtn" class="buttons"><ion-icon class="icon" size="medium"  name="add-circle-outline"></ion-icon></button> -->
+                        
+                    </div>
+                    
+                    <ul id="project">
+                        <li class="lists">Project 1</li>
+                        
+                    </ul>
+                    
+                </div>
+
+                <!-- <div class="completedProjects">
+                    <h3>COMPLETED PROJECTS</h3>
+
+                    <ul id="Complete">
+                        <li class="lists">Project A</li>
+                        
+                    </ul>
+
+                </div> -->
+                <div class="logOut">
+                    <img id="image"  style ="color: rgb(173, 238, 203)" src="images/LogoutRoundedLeft.png" alt="" width="20" />
+
+                    <button class ="image">Logout</button>
+                </div>
+            </div>
+            <div class="body" id="body">
+                <h3 id="h3" style="font-size:32px;"> No project found</h3>
+                <p id="p">Created on: </p>
+                <div class="board">
+                    <ul>
+                        <li>Board </li>
+                        
+                    </ul>
+                    <!-- <ion-icon size="large" class="icon"  name="create-outline"></ion-icon> -->
+                </div>
+                <div class="boards" id="boards"></div>
+
+            </div>
+
+            
+
+            
+
+        </div>
+        
+    </div>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
+    ></script>
+    <!-- <script src="dist/admin.js"></script> -->
+    <script src="dist/user.js"></script>
+</body>
+</html>
