@@ -13,13 +13,15 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.sqlConfig = void 0;
-// import * as mssql from "mssql";
+const dotenv_1 = __importDefault(require("dotenv"));
 const mssql_1 = __importDefault(require("mssql"));
+dotenv_1.default.config();
 exports.sqlConfig = {
-    user: 'sa',
-    password: '09909090MKK',
-    database: 'Rhyde',
-    server: 'DESKTOP-B56002J\\KIMWETICH',
+    user: process.env.DB_USER || 'sa',
+    password: process.env.DB_PWD || 'SQL-SERVER',
+    database: process.env.DB_NAME || 'ProjectManagement',
+    server: 'FAVOUR\\FAVOUR',
+    SECRET: "IUTR87GJWEF",
     pool: {
         max: 10,
         min: 0,
@@ -27,19 +29,21 @@ exports.sqlConfig = {
     },
     options: {
         encrypt: false,
-        trustServerCertificate: true
+        trustServerCertificate: false
     }
 };
+console.log(exports.sqlConfig);
 let connect = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        // make sure that any items are correctly URL encoded in the connection string
-        yield mssql_1.default.connect('Server=localhost,1433;Database=database;User Id=username;Password=password;Encrypt=true');
-        let query1 = "CREATE TABLE test(testcol VARCHAR(20))";
-        const result = yield mssql_1.default.query(query1);
-        console.dir(result);
+    let pool = yield mssql_1.default.connect(exports.sqlConfig);
+    if (pool.connected) {
+        console.log("connected");
+        // let query = 'CREATE TABLE Users(User_id VARCHAR(100) NOT NULL, Name VARCHAR(100) NOT NULL, Email VARCHAR(255) NOT NULL UNIQUE, Role VARCHAR(20), Password VARCHAR(200) NOT NULL, Specialization_area VARCHAR(200))'
+        // // let query2 = 'DROP TABLE Users'
+        // let result = (await (await pool.connect()).query(query)).rowsAffected
+        // console.log(result);
     }
-    catch (err) {
-        console.log(err);
+    else {
+        console.log('not connected');
     }
 });
-console.log(exports.sqlConfig);
+connect();

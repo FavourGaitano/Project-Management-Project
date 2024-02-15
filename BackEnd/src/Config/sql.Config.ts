@@ -1,34 +1,48 @@
-// import * as mssql from "mssql";
+import dotenv from 'dotenv'
 import mssql from 'mssql'
 
+
+dotenv.config();
+
+
 export const sqlConfig = {
-    user:'sa',
-    password:'09909090MKK',
-    database: 'Rhyde',
-    server: 'DESKTOP-B56002J\\KIMWETICH',
-    pool: {
-        max: 10,
-        min: 0,
-        idleTimeoutMillis: 30000
-    },
-    options: {
-        encrypt: false,
-        trustServerCertificate:true
+
+    user: process.env.DB_USER || 'sa', 
+    password: process.env.DB_PWD || 'SQL-SERVER' ,
+    database: process.env.DB_NAME || 'ProjectManagement',
+    server :'FAVOUR\\FAVOUR',
+    SECRET: "IUTR87GJWEF",
+
+  pool: {
+    max: 10,
+    min: 0,
+    idleTimeoutMillis: 30000
+  },
+  options: {
+    encrypt: false, 
+    trustServerCertificate: false 
     }
 };
 
-let connect = async () => {
-    try {
-        // make sure that any items are correctly URL encoded in the connection string
-        await mssql.connect('Server=localhost,1433;Database=database;User Id=username;Password=password;Encrypt=true')
-        let query1 = "CREATE TABLE test(testcol VARCHAR(20))"
-        const result = await mssql.query(query1)
-        console.dir(result)
-    } catch (err) {
-        console.log(err);
+console.log(sqlConfig);
+
+let connect = async () =>{
+    let pool = await mssql.connect(sqlConfig)
+
+    if(pool.connected){
+        console.log("connected");
+
+        // let query = 'CREATE TABLE Users(User_id VARCHAR(100) NOT NULL, Name VARCHAR(100) NOT NULL, Email VARCHAR(255) NOT NULL UNIQUE, Role VARCHAR(20), Password VARCHAR(200) NOT NULL, Specialization_area VARCHAR(200))'
+
+        // // let query2 = 'DROP TABLE Users'
+        // let result = (await (await pool.connect()).query(query)).rowsAffected
+
+        // console.log(result);
+        
+    }else{
+        console.log('not connected');
         
     }
 }
 
-console.log(sqlConfig);
-
+connect()

@@ -1,0 +1,184 @@
+// Utility function for API requests
+const fetchApi = async (url: string, method: string, body: any = null) => {
+    const headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    const token = localStorage.getItem('token');
+    if (token) {
+        headers.append('token', token);
+    }
+
+    const requestOptions: RequestInit = {
+        method: method,
+        headers: headers,
+        body: body ? JSON.stringify(body) : null
+    };
+
+    try {
+        const response = await fetch(url, requestOptions);
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return await response.json();
+    } catch (error) {
+        console.error('Error:', error);
+    }
+};
+
+// Project Interface
+interface Project {
+    project_id: number;
+    projectName: string;
+    projectDescription: string;
+    endDate: string;
+    registeredUser: string;
+    email: string;
+}
+
+// ProjectActions class
+class ProjectActions {
+    private baseUrl: string = 'http://localhost:3001/projects';
+
+    async displayProjects() {
+
+        try {
+            const response = await fetchApi(this.baseUrl, 'GET');
+
+            if (response && response.projects && Array.isArray(response.projects.recordsets[0])) {
+                const projects: Project[] = response.projects.recordsets[0];
+                const projectList = document.querySelector('#project') as HTMLElement;
+                projectList.innerHTML = '';
+            
+            
+            
+
+                projects.forEach((project: Project) => {
+                    let projectListItem = document.createElement('li');
+                    projectListItem.classList.add('lists', 'buttons');
+                    projectListItem.textContent = project.projectName;
+
+                    const editButton = document.createElement('button');
+                    editButton.textContent = 'Edit';
+                    editButton.addEventListener('click', () => {
+                        this.loadProjectIntoForm(project);
+                    });
+
+                    const deleteButton = document.createElement('button');
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.addEventListener('click', () => {
+                        this.deleteProject(project.project_id);
+                    });
+
+                    projectListItem.appendChild(editButton);
+                    projectListItem.appendChild(deleteButton);
+
+                    projectList.appendChild(projectListItem);
+                });
+            } else {
+                console.error('Invalid response structure:', response);
+            }
+
+            } catch (error) {
+                console.error('Error displaying projects:', error);
+            }
+        }
+
+        async addOrUpdateProject(project: Project, isUpdating: boolean) {
+            const url = isUpdating ? `${this.baseUrl}/${project.id}` : this.baseUrl;
+            const method = isUpdating ? 'PUT' : 'POST';
+            await fetchApi(url, method, project);
+            this.displayProjects();
+        }
+
+        async deleteProject(projectId: number) {
+            await fetchApi(`${this.baseUrl}/${projectId}`, 'DELETE');
+            this.displayProjects();
+        }
+
+        loadProjectIntoForm(project: Project) {
+            const projectNameInput = document.querySelector('#projectName') as HTMLInputElement;
+            const projectDescriptionInput = document.querySelector('#projectDescription') as HTMLInputElement;
+            const endDateInput = document.querySelector('#endDate') as HTMLInputElement;
+            const registeredUserInput = document.querySelector('#registeredUser') as HTMLInputElement;
+            const emailInput = document.querySelector('#email') as HTMLInputElement;
+            const projectIdInput = document.querySelector('#projectId') as HTMLInputElement;
+
+            projectNameInput.value = project.projectName;
+            projectDescriptionInput.value = project.projectDescription;
+            endDateInput.value = project.endDate;
+            registeredUserInput.value = project.registeredUser;
+            emailInput.value = project.email;
+            projectIdInput.value = project.id.toString();
+
+            const editForm = document.querySelector('#editform') as HTMLFormElement;
+            editForm.style.display = 'block';
+    }
+        
+}
+
+// DOMContentLoaded and event listener setup
+document.addEventListener('DOMContentLoaded', () :void => {
+    const instance = new ProjectActions();
+    const addForm = document.querySelector('#addform') as HTMLFormElement;
+    const updateForm = document.querySelector('#updateForm') as HTMLFormElement;
+    const form = document.querySelector('#form') as HTMLDivElement;
+    const editForm = document.querySelector('#editform') as HTMLDivElement;
+    const addBtn = document.querySelector('#addbtn') as HTMLButtonElement;
+    const backBtn = document.querySelector('#backbtn') as HTMLButtonElement;
+    const editBackBtn = document.querySelector('#editBackBtn') as HTMLButtonElement;
+
+    addForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const projectData = {
+            id: parseInt((document.querySelector('#projectId') as HTMLInputElement).value),
+            projectName: (document.querySelector('#projectName') as HTMLInputElement).value,
+            projectDescription: (document.querySelector('#projectDescription') as HTMLInputElement).value,
+            endDate: (document.querySelector('#endDate') as HTMLInputElement).value,
+            registeredUser: (document.querySelector('#registeredUser') as HTMLInputElement).value,
+            email: (document.querySelector('#email') as HTMLInputElement).value
+        };
+        const isUpdating = projectData.id !== null && !isNaN(projectData.id);
+        await instance.addOrUpdateProject(projectData, isUpdating);
+        form.style.display = 'none';
+        addForm.reset();
+    });
+
+    // In the ProjectActions class
+
+    updateForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        // Extracting project data from the update form
+        const projectId = parseInt((document.querySelector('#editProjectId') as HTMLInputElement).value);
+        const updatedProjectData: Project = {
+            id: projectId,
+            projectName: (document.querySelector('#editProjectName') as HTMLInputElement).value,
+            projectDescription: (document.querySelector('#editProjectDescription') as HTMLInputElement).value,
+            endDate: (document.querySelector('#editEndDate') as HTMLInputElement).value,
+            registeredUser: (document.querySelector('#editRegisteredUser') as HTMLInputElement).value,
+            email: (document.querySelector('#editEmail') as HTMLInputElement).value
+        };
+
+        // Calling addOrUpdateProject with the updated project data
+        await instance.addOrUpdateProject(updatedProjectData, true); // true indicates it's an update
+
+        editForm.style.display = 'none'; // Hide the edit form after submission
+        updateForm.reset(); // Reset the update form fields
+    });
+
+    // Rest of your code remains the same
+
+
+    addBtn.addEventListener('click', () => {
+        form.style.display = form.style.display === 'none' ? 'block' : 'none';
+    });
+
+    backBtn.addEventListener('click', () => {
+        form.style.display = 'none';
+    });
+
+    editBackBtn.addEventListener('click', () => {
+        editForm.style.display = 'none';
+    });
+
+    instance.displayProjects();
+});

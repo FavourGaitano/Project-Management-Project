@@ -1,0 +1,61 @@
+### CREATE PROJECT
+
+POST http://localhost:3001/projects
+Content-Type: application/json
+
+{
+    "projectname": " Project",
+    "description": "Project Hardware means all materials, supplies, apparatus, devices, equipment, machinery, tools, parts, components, instruments, and appliances ",
+    "createdate": "12-01-2024",
+    "enddate":"12-05-2024"
+}
+
+###GET ALL PROJECTS
+
+GET http://localhost:3001/projects
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlMTcyOTc1LTE1ZWItNDI0OC1iYmE2LWI4YzlkMjcxMzg4MyIsImVtYWlsIjoiamFtZXNrYXJpdWtpQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3NzQyNTk1LCJleHAiOjE3MDgwMDE3OTV9.KsQKbKTElamaCnXSiU6F62KxHL2bf1uFyOgXjesxWxE
+
+###GET PROJECT BY ID
+GET http://localhost:3001/projects/70206b7b-4a59-4d26-8250-3ba377d9907e
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlMTcyOTc1LTE1ZWItNDI0OC1iYmE2LWI4YzlkMjcxMzg4MyIsImVtYWlsIjoiamFtZXNrYXJpdWtpQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3NzAyMzM1LCJleHAiOjE3MDc3MDU5MzV9.BN-ij5PQmCJNs0brbgXQcqd_lb7DYSvV12vQNOcBTHI
+
+###UPDATE PROJECT BY ID
+PUT http://localhost:3001/projects/70206b7b-4a59-4d26-8250-3ba377d9907e
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlMTcyOTc1LTE1ZWItNDI0OC1iYmE2LWI4YzlkMjcxMzg4MyIsImVtYWlsIjoiamFtZXNrYXJpdWtpQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3NzQyNTk1LCJleHAiOjE3MDgwMDE3OTV9.KsQKbKTElamaCnXSiU6F62KxHL2bf1uFyOgXjesxWxE
+
+
+{
+    "projectname": "Project",
+    "description": "(UI) project focuses on designing and developing the visual and interactive aspects of a software application or website. It aims to create a user-friendly and aesthetically pleasing interface that facilitates a seamless and intuitive user experience (UX). ",
+    "createdate": "12-01-2024",
+    "enddate":"12-05-2024"
+}
+
+###DELETE PROJECT BY ID
+DELETE http://localhost:3001/projects/92e96076-9dd2-495b-8f48-db139d4d5694
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyZDZiMzg1LTA0NzYtNGUwOS1iNzZkLWU4YWM4N2NhNWVkNiIsImVtYWlsIjoiZmF2b3VyYnV5YW56aUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDc4MjMwMDMsImV4cCI6MTcwODA4MjIwM30.IaLGUu2A2a8KOzIOTquB7EdQJbddxfES_p1tuT-3yEI
+
+### ASSIGN PROJECT TO USER
+    
+POST http://localhost:3001/projects/afc5614e-dae4-4aaf-88b7-408d1dfc7e5a
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyZDZiMzg1LTA0NzYtNGUwOS1iNzZkLWU4YWM4N2NhNWVkNiIsImVtYWlsIjoiZmF2b3VyYnV5YW56aUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDc4MjMwMDMsImV4cCI6MTcwODA4MjIwM30.IaLGUu2A2a8KOzIOTquB7EdQJbddxfES_p1tuT-3yEI
+
+
+{
+    "user_id":"4e172975-15eb-4248-bba6-b8c9d2713883"
+}
+
+### COMPLETE A PROJECT
+
+POST http://localhost:3001/projects/completed/afc5614e-dae4-4aaf-88b7-408d1dfc7e5a
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyZDZiMzg1LTA0NzYtNGUwOS1iNzZkLWU4YWM4N2NhNWVkNiIsImVtYWlsIjoiZmF2b3VyYnV5YW56aUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDc4MjMwMDMsImV4cCI6MTcwODA4MjIwM30.IaLGUu2A2a8KOzIOTquB7EdQJbddxfES_p1tuT-3yEI
+
+{
+    "user_id": "4e172975-15eb-4248-bba6-b8c9d2713883"
+}

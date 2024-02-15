@@ -1,0 +1,41 @@
+### CREATE USER
+
+POST http://localhost:3001/users
+Content-Type: application/json
+
+{
+    "name": "Favour Buyanzi",
+    "email": "favourgaitano@gmail.com",
+    "password": "123456",
+    "specialization_area":"QA/QE"
+}
+
+###GET ALL USERS
+GET http://localhost:3001/users
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyZDZiMzg1LTA0NzYtNGUwOS1iNzZkLWU4YWM4N2NhNWVkNiIsImVtYWlsIjoiZmF2b3VyYnV5YW56aUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDc4MjMwMDMsImV4cCI6MTcwODA4MjIwM30.IaLGUu2A2a8KOzIOTquB7EdQJbddxfES_p1tuT-3yEI
+
+###GET USER BY ID
+GET http://localhost:3001/users/c7ecce7f-ba59-4f38-8b64-7cacae4b0c70
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjcyZDZiMzg1LTA0NzYtNGUwOS1iNzZkLWU4YWM4N2NhNWVkNiIsImVtYWlsIjoiZmF2b3VyYnV5YW56aUBnbWFpbC5jb20iLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MDc4MjMwMDMsImV4cCI6MTcwODA4MjIwM30.IaLGUu2A2a8KOzIOTquB7EdQJbddxfES_p1tuT-3yEI
+
+###UPDATE USER
+PUT http://localhost:3001/users/c7ecce7f-ba59-4f38-8b64-7cacae4b0c70
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlMTcyOTc1LTE1ZWItNDI0OC1iYmE2LWI4YzlkMjcxMzg4MyIsImVtYWlsIjoiamFtZXNrYXJpdWtpQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3NzQyNTk1LCJleHAiOjE3MDgwMDE3OTV9.KsQKbKTElamaCnXSiU6F62KxHL2bf1uFyOgXjesxWxE
+
+
+{
+    "name": "Favour Buyanzi",
+    "email": "favourbuyanzi@gmail.com",
+    "role": "admin",
+    "password": "123456",
+    "specialization_area":" Engineer"
+}
+
+###DELETE USER
+DELETE http://localhost:3001/users/5a43f0de-377c-4f9c-a800-32f1b45bcbca
+Content-Type: application/json
+token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjRlMTcyOTc1LTE1ZWItNDI0OC1iYmE2LWI4YzlkMjcxMzg4MyIsImVtYWlsIjoiamFtZXNrYXJpdWtpQGdtYWlsLmNvbSIsInJvbGUiOiJ1c2VyIiwiaWF0IjoxNzA3Njc2MTQ1LCJleHAiOjE3MDc2Nzk3NDV9.fvp2q4WI9sHBJpXEdYY2ThOF2MwtNmBe_u2SK_NtH6U
+

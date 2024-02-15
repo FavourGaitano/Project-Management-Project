@@ -1,0 +1,6 @@
+CREATE OR ALTER PROCEDURE getAllProjects
+AS
+BEGIN
+    SELECT * FROM Projects WHERE isDeleted = 0;
+
+END

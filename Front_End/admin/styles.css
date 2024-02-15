@@ -1,0 +1,316 @@
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    
+}
+.main{
+    width: 100%;
+    height: 100%; 
+    /* border: 2px solid #b43030; */
+    font-family: 'Inter', sans-serif;
+    /* margin-top:18px; */
+    /* padding-bottom:18px; */
+    overflow:hidden;
+    /* background-color: #739b8d; */
+    background-color:white ;
+    
+}
+.nav-bar{
+    display:flex;
+    /* border: 2px solid #93e2d5;  */
+    height:11vh;
+    justify-content: space-between;
+    width:98%;
+    border-bottom: solid 1px #DBDBDB;
+    /* margin-top:18px; */
+    padding-inline: 25px;
+    /* background-color:#144414 ; */
+    
+
+}
+.users{
+    padding-left:8px;
+    display:flex;
+    gap:13px;
+    width: 14.5%;
+    /* border: 2px solid #93e2d5;  */
+    padding-top:35px;
+    padding-bottom:5px;
+    border-right: solid 1px #DBDBDB;
+    font-size:18px;
+   
+    
+    
+}
+.logo{
+    width:12%;
+    height:50%;
+}
+.admin{
+    padding-top:28px;
+    padding-bottom:5px;
+    font-size: 20px;
+    font-weight:bold;
+    margin-right:85px;
+}
+.container{
+    display:flex;
+    /* flex-direction: column; */
+   
+    height:88vh;
+    width: 100vw;
+    overflow: hidden;
+}
+.side-bar{
+    width:12.8%;
+    /* background-color: rgb(45, 156, 119); */
+    border-right: solid 1.5px #DBDBDB;
+    margin-left:40px;
+    padding-right:15px;
+    /* overflow-y: auto; */
+    /* height:scroll; */
+    /* background-color: rgb(46, 117, 99); */
+}
+.userNames{
+    height:30%;
+    display:flex;
+    padding-top:18px;
+    gap:15px;
+    font-size:14px;
+    /* border-bottom: solid 1.5px #DBDBDB; */
+    font-family: 'Inter', sans-serif;
+    color: #6E6E6E;
+   
+    
+    
+}
+.projects{
+    height:38%;
+    font-size:16px;
+    overflow-y: auto;
+    /* border-bottom: solid 1.5px #DBDBDB; */
+}
+.completedProjects{
+    height:40%;
+    /* background-color: blue; */
+
+}
+
+.title{
+    font-size:16px;
+    display:flex;
+    gap:80px;
+    padding-top:15px;
+    
+    
+}
+.title >h3{
+    font-size:13px;
+}
+.lists{
+    padding-top:12px;
+    font-size:13px;
+    color: #6E6E6E;
+    margin-left:15px;
+    
+}
+.completedProjects >h3{
+    font-size:13px;
+    padding-top:35px;
+    /* border-bottom: solid 1.5px #DBDBDB; */
+}
+.body{
+    /* padding:50px; */
+    padding-inline:50px;
+    padding-top: 25px;
+    padding-bottom: 10px;
+    /* background-color: blue; */
+    width:75%;
+    margin-right:40px;
+    position:relatve;
+}
+
+#h3{
+    font-size:32px;
+    padding-bottom:30px;
+}
+#p{
+    font-size:16px;
+    color: #6E6E6E;
+}
+.board{
+    display:flex;
+    justify-content: space-between;
+    font-size:16px;
+    font-weight:600;
+    margin-top:30px;
+    /* background-color: aquamarine; */
+    padding-top:1.5%;
+    padding-bottom:1.5%;
+    border-bottom: solid 2px rgb(173, 238, 203);
+}
+.boards{
+    height:65%;
+    background-color: rgb(173, 238, 203);
+    margin-top:1.5%;
+    border-radius:12px;
+    box-shadow:#6fac95;
+    box-shadow: 5px 5px 7px 0px #96d6bf;
+    padding: 40px;
+}
+.milestones {
+    color: #333; 
+    margin-bottom: 60px;
+    font-size:18px;
+    
+}
+
+.desc{
+    color: #333; 
+    line-height: 1.6;
+    padding-bottom:100px;
+    font-size:18px;
+}
+.end{
+    margin-top:50px;
+    color: #0f0f0f; 
+    line-height: 1.6;
+    /* padding-bottom:100px; */
+    font-size:15px;
+}
+
+.register{
+    color: #0f0f0f; 
+    line-height: 1.6;
+    /* padding-bottom:100px; */
+    font-size:15px;
+}
+
+
+  
+/* #boards p {
+    color: #333; 
+    line-height: 1.6;
+    margin-bottom: 0px;
+    font-size:15px;
+} */
+.icon{
+    width:21px;
+    height:21px;
+    color:#6fac95;
+}
+.addform{
+    position:absolute;
+    /* top: 20px; */
+    left: 80vw;
+    width: 17.7vw;
+    height: 86vh;
+    background-color: #f9f9f9;
+    border-top: solid 3px rgb(173, 238, 203);
+    padding-inline: 18px;
+    padding-top:10px;
+
+    
+}
+.header{
+    display:flex;
+    justify-content: space-between;
+    color:black;
+    margin-bottom:15px;
+    margin-top:12px;
+}
+
+.form0{
+    
+    margin: auto;
+    padding: 20px;
+    background-color:white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    font-size:14px;
+}
+.form-input {
+    margin-bottom: 10px;
+    width: 100%;
+    /* background-color: aqua; */
+}
+.form-input input,
+  .form-input select,
+  .form-input textarea {
+    width: 93%; 
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    
+    background-color: #f9f9f9;
+}
+.form-input:hover
+{
+    border-color: #4CAF50;
+}
+.form-input label {
+    font-weight: bold;
+}
+
+.submit-button {
+    background-color: #6eb399;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top:18%;
+    margin-left:30%;
+    width:50%;
+
+}
+.buttons{
+    border:none;
+    background-color: white;
+}
+.edit-button, .delete-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    margin-right: 5px;
+  }
+  
+  .edit-button:hover, .delete-button:hover {
+    background-color: #f2f2f2; /* Light grey background on hover */
+    border-radius:10px;
+  }
+  
+  .edit-button:before {
+    content: '✏️'; 
+    margin-right: 5px;
+    color: black;
+    
+  }
+  
+  .delete-button:before {
+    content: '🗑️'; 
+    margin-right: 5px;
+  }
+  .projectIcons {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .image{
+    background-color:white;
+    border:none;
+    font-size:14px;
+    padding-top:150px;
+    padding-left:10px;
+  }
+ .logout{
+    display:flex;
+    font-size:14px;
+    gap:30px;
+    /* padding-top:100px; */
+ }
+   
+
